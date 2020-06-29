@@ -1,8 +1,10 @@
 import numpy as np
 from skimage.morphology import flood_fill
+
 from .base import BaseShape, DrawInCanvas
 
 BUCKET_FILL_KEY = 2
+
 
 class BucketFillShape(BaseShape, DrawInCanvas):
     shape_name = 'BucketFill'
@@ -13,13 +15,9 @@ class BucketFillShape(BaseShape, DrawInCanvas):
 
     def validate(self, strokes):
         is_valid = super().validate(strokes)
-        return is_valid or (
-            not is_valid and (
-                strokes[0] != '0' and
-                strokes[1] != '0' and
-                strokes[2] == '0'
-            )
-        )
+        return is_valid or (not is_valid and
+                            (strokes[0] != '0' and strokes[1] != '0'
+                             and strokes[2] == '0'))
 
     def set_shape_data(self, strokes):
         self.x = int(strokes[0])
@@ -27,20 +25,22 @@ class BucketFillShape(BaseShape, DrawInCanvas):
         self.colour = strokes[2]
 
     def fills_in_canvas(self):
-        return (
-            (self.x >= 0 and self.x <= self.canvas.width) and
-            (self.y >= 0 and self.y <= self.canvas.height)
-        )
+        return ((self.x >= 0 and self.x <= self.canvas.width)
+                and (self.y >= 0 and self.y <= self.canvas.height))
 
     def get_params(self):
-        return [self.x, self.y, self.colour,]
+        return [
+            self.x,
+            self.y,
+            self.colour,
+        ]
 
     def set_shape_in_canvas(self):
         """
         The fill feature is achieve by using a flood fill type algorithm
         see: https://en.wikipedia.org/wiki/Flood_fill
         """
-        
+
         filled_canvas_copy = self.perform_flood_fill()
         self.fill_canvas(filled_canvas_copy)
 

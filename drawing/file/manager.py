@@ -1,5 +1,6 @@
 import os
 
+
 class FileManager:
     def __init__(self):
         current_path = os.path.abspath(os.path.dirname(__file__))

@@ -1,12 +1,13 @@
+from .bucket import BucketFillShape
 from .canvas import CanvasShape
 from .line import LineShape
 from .rectangle import RectangleShape
-from .bucket import BucketFillShape
 
 CANVAS_SHAPE_KEY = 'C'
 LINE_SHAPE_KEY = 'L'
 RECTANGLE_SHAPE_KEY = 'R'
 BUCKET_FILL_SHAPE_KEY = 'B'
+
 
 class ShapesManager():
     allowed_shapes = [

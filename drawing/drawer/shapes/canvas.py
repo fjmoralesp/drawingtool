@@ -1,5 +1,7 @@
 import numpy as np
+
 from .base import BaseShape
+
 
 class CanvasShape(BaseShape):
     drawing = ''
@@ -13,7 +15,9 @@ class CanvasShape(BaseShape):
     def validate(self, strokes):
         is_valid = super().validate(strokes)
         if not is_valid:
-            self.invalid_message += '\n' + self.shape_name + ' wasn\'t drew, the program can\'t continue'
+            self.invalid_message += (
+                '\n' + self.shape_name +
+                ' wasn\'t drew, the program can\'t continue')
         return is_valid
 
     def set_shape_data(self, strokes):
@@ -46,7 +50,8 @@ class CanvasShape(BaseShape):
         rows_data = []
         for row in canvas_rows:
             rows_data.append(('|' + ''.join(row) + '|'))
-        self.drawing = header + '\n' + '\n'.join(rows_data) + '\n' + footer + '\n'
+        self.drawing = header + '\n' + '\n'.join(
+            rows_data) + '\n' + footer + '\n'
 
     def get_drawing(self):
         self.canvas_drawing_was_updated = False

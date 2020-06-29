@@ -1,5 +1,6 @@
 from drawer.shapes.manager import CANVAS_SHAPE_KEY, ShapesManager
 
+
 class DrawerManager():
     def __init__(self):
         self.shapes_manager = ShapesManager()
@@ -7,23 +8,31 @@ class DrawerManager():
     def draw(self, drawing_commands):
         output_data = []
         if self.commands_are_valid(drawing_commands):
-            canvas_shape_data, shapes_data = self.get_shapes_data(drawing_commands)
+            canvas_shape_data, shapes_data = self.get_shapes_data(
+                drawing_commands)
             canvas = self.shapes_manager.build_shape(canvas_shape_data)
             output_data = self.draw_shape(canvas, output_data)
             for shape_data in shapes_data:
                 shaper = self.shapes_manager.build_shape(shape_data)
-                output_data = self.draw_shape(shaper, output_data, use_canvas=True, canvas=canvas)
+                output_data = self.draw_shape(shaper,
+                                              output_data,
+                                              use_canvas=True,
+                                              canvas=canvas)
         return output_data
 
     def commands_are_valid(self, drawing_commands):
         canvases = self.count_canvases(drawing_commands)
         if canvases == 0:
-            print('you haven\'t provided a canvas, the program can\'t continue')
-            return False # Fast return, common in JS not sure in python, but it's clear enough
-        
+            print(
+                'you haven\'t provided a canvas, the program can\'t continue')
+            # Fast return, common in JS not sure in python
+            return False
+
         if canvases > 1:
-            print('you have provided multiple canvas, the program can\'t continue')
-            return False # Fast return, common in JS not sure in python, but it's clear enough
+            print('you have provided multiple canvas,'
+                  ' the program can\'t continue')
+            # Fast return, common in JS not sure in python
+            return False
         return True
 
     def count_canvases(self, drawing_commands):
