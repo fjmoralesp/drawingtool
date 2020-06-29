@@ -41,14 +41,12 @@ class TestLineShape():
         assert is_valid == False
 
     def test_it_draws_in_canvas(self):
-        expected_drawing = (
-            '----------------------\n' +
-            '|                    |\n' +
-            '|xxxxxx              |\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '----------------------\n'
-        )
+        expected_drawing = ('----------------------\n' +
+                            '|                    |\n' +
+                            '|xxxxxx              |\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '----------------------\n')
 
         strokes = ['1', '2', '6', '2']
         self.line_shape.build(strokes)
@@ -56,14 +54,12 @@ class TestLineShape():
         assert self.canvas_shape.drawing == expected_drawing
 
     def test_it_does_not_draw_in_canvas_if_it_does_not_fill(self):
-        expected_drawing = (
-            '----------------------\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '----------------------\n'
-        )
+        expected_drawing = ('----------------------\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '----------------------\n')
 
         strokes = ['50', '2', '6', '2']
         self.line_shape.build(strokes)
@@ -71,14 +67,12 @@ class TestLineShape():
         assert self.canvas_shape.drawing == expected_drawing
 
     def test_it_draws_vertical_line(self):
-        expected_drawing = (
-            '----------------------\n' +
-            '|     x              |\n' +
-            '|     x              |\n' +
-            '|     x              |\n' +
-            '|     x              |\n' +
-            '----------------------\n'
-        )
+        expected_drawing = ('----------------------\n' +
+                            '|     x              |\n' +
+                            '|     x              |\n' +
+                            '|     x              |\n' +
+                            '|     x              |\n' +
+                            '----------------------\n')
 
         strokes = ['6', '1', '6', '4']
         self.line_shape.build(strokes)
@@ -86,14 +80,12 @@ class TestLineShape():
         assert self.canvas_shape.drawing == expected_drawing
 
     def test_it_draws_horizontal_line(self):
-        expected_drawing = (
-            '----------------------\n' +
-            '|                    |\n' +
-            '|xxxxxxxxxxxxxxxxxxxx|\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '----------------------\n'
-        )
+        expected_drawing = ('----------------------\n' +
+                            '|                    |\n' +
+                            '|xxxxxxxxxxxxxxxxxxxx|\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '----------------------\n')
 
         strokes = ['1', '2', '20', '2']
         self.line_shape.build(strokes)

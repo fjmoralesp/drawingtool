@@ -33,14 +33,12 @@ class TestCanvasShape():
         assert is_valid == False
 
     def test_it_updates_canvas_drawing(self):
-        expected_drawing = (
-            '----------------------\n' +
-            '|HHHHHHHHHHHHHHHHHHHH|\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '----------------------\n'
-        )
+        expected_drawing = ('----------------------\n' +
+                            '|HHHHHHHHHHHHHHHHHHHH|\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '----------------------\n')
 
         strokes = ['20', '4']
         self.canvas_shape.build(strokes)

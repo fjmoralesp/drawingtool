@@ -51,14 +51,12 @@ class TestRectangleShape():
         assert is_valid == False
 
     def test_it_draws_in_canvas(self):
-        expected_drawing = (
-            '----------------------\n' +
-            '|    xxxxxxxxxxx     |\n' +
-            '|    x         x     |\n' +
-            '|    x         x     |\n' +
-            '|    xxxxxxxxxxx     |\n' +
-            '----------------------\n'
-        )
+        expected_drawing = ('----------------------\n' +
+                            '|    xxxxxxxxxxx     |\n' +
+                            '|    x         x     |\n' +
+                            '|    x         x     |\n' +
+                            '|    xxxxxxxxxxx     |\n' +
+                            '----------------------\n')
 
         strokes = ['5', '1', '15', '4']
         self.rectangle_shape.build(strokes)
@@ -66,14 +64,12 @@ class TestRectangleShape():
         assert self.canvas_shape.drawing == expected_drawing
 
     def test_it_does_not_draw_in_canvas_if_it_does_not_fill(self):
-        expected_drawing = (
-            '----------------------\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '----------------------\n'
-        )
+        expected_drawing = ('----------------------\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '----------------------\n')
 
         strokes = ['16', '90', '20', '4']
         self.rectangle_shape.build(strokes)

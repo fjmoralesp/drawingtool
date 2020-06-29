@@ -39,14 +39,12 @@ class TestBucketFillShape():
         assert is_valid == True
 
     def test_it_draws_in_canvas(self):
-        expected_drawing = (
-            '----------------------\n' +
-            '|oooooooooooooooooooo|\n' +
-            '|oooooooooooooooooooo|\n' +
-            '|oooooooooooooooooooo|\n' +
-            '|oooooooooooooooooooo|\n' +
-            '----------------------\n'
-        )
+        expected_drawing = ('----------------------\n' +
+                            '|oooooooooooooooooooo|\n' +
+                            '|oooooooooooooooooooo|\n' +
+                            '|oooooooooooooooooooo|\n' +
+                            '|oooooooooooooooooooo|\n' +
+                            '----------------------\n')
 
         strokes = ['1', '1', 'o']
         self.bucket_fill_shape.build(strokes)
@@ -54,14 +52,12 @@ class TestBucketFillShape():
         assert self.canvas_shape.drawing == expected_drawing
 
     def test_it_does_not_draw_in_canvas_if_it_does_not_fill(self):
-        expected_drawing = (
-            '----------------------\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '|                    |\n' +
-            '----------------------\n'
-        )
+        expected_drawing = ('----------------------\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '|                    |\n' +
+                            '----------------------\n')
 
         strokes = ['10', '90', 'o']
         self.bucket_fill_shape.build(strokes)
