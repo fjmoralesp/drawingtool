@@ -1,2 +1,5 @@
-numpy==1.19.0
-scikit-image==0.17.2
+numpy==1.19.0 # https://numpy.org/install/
+scikit-image==0.17.2 # https://scikit-image.org/docs/stable/install.html
+pytest==5.4.2 # https://github.com/pytest-dev/pytest
+pytest-mock==3.1.1 # https://github.com/pytest-dev/pytest-mock/
+coverage==5.1  # https://github.com/nedbat/coveragepy

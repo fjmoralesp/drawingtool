@@ -13,11 +13,14 @@ class RectangleShape(BaseShape, DrawInCanvas):
 
     def validate(self, strokes):
         is_valid = super().validate(strokes)
-        if is_valid and (strokes[0] > strokes[2] or strokes[1] > strokes[3]):
+        # this casing was unexpected, sadly have no enough time to refactor this
+        casted_stroke = [int(stroke) for stroke in strokes]
+
+        if is_valid and (casted_stroke[0] > casted_stroke[2] or casted_stroke[1] > casted_stroke[3]):
             self.invalid_message = 'Strokes are invalid, rectangle is backward?'
             return False
 
-        if is_valid and (strokes[0] == strokes[2] or strokes[1] == strokes[3]):
+        if is_valid and (casted_stroke[0] == casted_stroke[2] or casted_stroke[1] == casted_stroke[3]):
             self.invalid_message = 'Strokes are invalid, the result shape won\'t be a rectangle'
             return False
         return is_valid

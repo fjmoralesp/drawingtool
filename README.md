@@ -24,3 +24,8 @@ Then run:
 `./run.sh`
 
 An **o​utput.txt** file will be created in the root directory with the program results
+
+### `Run the program`
+To excecute the tests and generate the code coverage run:
+
+``./runTests.sh``

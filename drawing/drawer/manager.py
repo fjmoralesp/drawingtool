@@ -1,4 +1,4 @@
-from drawer.shapes.manager import CANVAS_SHAPE_KEY, ShapesManager
+from .shapes.manager import CANVAS_SHAPE_KEY, ShapesManager
 
 
 class DrawerManager():
@@ -44,7 +44,7 @@ class DrawerManager():
 
     def get_shapes_data(self, drawing_commands):
         canvas_shape_data = []
-        shapes_data = drawing_commands
+        shapes_data = drawing_commands.copy()
         for index, command in enumerate(drawing_commands):
             if CANVAS_SHAPE_KEY in command:
                 del shapes_data[index]

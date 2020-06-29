@@ -15,7 +15,8 @@ class BucketFillShape(BaseShape, DrawInCanvas):
 
     def validate(self, strokes):
         is_valid = super().validate(strokes)
-        return is_valid or (not is_valid and
+        strokes_count = len(strokes)
+        return is_valid or ((not is_valid and strokes_count == self.shape_strokes) and
                             (strokes[0] != '0' and strokes[1] != '0'
                              and strokes[2] == '0'))
 
